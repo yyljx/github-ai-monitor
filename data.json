@@ -1,5 +1,5 @@
 {
-  "update_time": "2026-01-18 17:57",
+  "update_time": "2026-01-18 18:00",
   "new_hot": [
     {
       "id": 1134144797,
@@ -586,35 +586,35 @@
       "full_name": "eigent-ai /eigent",
       "html_url": "https://github.com/eigent-ai/eigent",
       "description": "Eigent: The Open Source Cowork Desktop to Unlock Your Exceptional Productivity.",
-      "stargazers_count": "9,063",
+      "stargazers_count": "9,065",
       "growth": "760 stars today (Global AI)"
     },
     {
       "full_name": "obra /superpowers",
       "html_url": "https://github.com/obra/superpowers",
       "description": "An agentic skills framework & software development methodology that works.",
-      "stargazers_count": "27,864",
+      "stargazers_count": "27,865",
       "growth": "1,422 stars today (Global AI)"
     },
     {
       "full_name": "puckeditor /puck",
       "html_url": "https://github.com/puckeditor/puck",
       "description": "The visual editor for React with AI superpowers",
-      "stargazers_count": "11,515",
+      "stargazers_count": "11,516",
       "growth": "336 stars today (Global AI)"
     },
     {
       "full_name": "google /langextract",
       "html_url": "https://github.com/google/langextract",
       "description": "A Python library for extracting structured information from unstructured text using LLMs with precise source grounding and interactive visualization.",
-      "stargazers_count": "21,741",
+      "stargazers_count": "21,742",
       "growth": "425 stars today (Global AI)"
     },
     {
       "full_name": "iOfficeAI /AionUi",
       "html_url": "https://github.com/iOfficeAI/AionUi",
       "description": "Free, local, open-source Cowork for Gemini CLI, Claude Code, Codex, Opencode, Qwen Code, Goose Cli, Auggie, and more | 🌟 Star if you like it!",
-      "stargazers_count": "5,137",
+      "stargazers_count": "5,140",
       "growth": "605 stars today (Global AI)"
     }
   ]
