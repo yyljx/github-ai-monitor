@@ -119,14 +119,43 @@
             }
 
             container.innerHTML = items.map((repo, index) => {
-                // Ensure owner object exists or fallback
-                const ownerLogin = repo.owner ? repo.owner.login : (repo.full_name ? repo.full_name.split('/')[0] : 'unknown');
-                const avatarUrl = repo.owner ? repo.owner.avatar_url : `https://github.com/${ownerLogin}.png`;
+                // 数据适配逻辑
+                let name = repo.name;
+                let ownerLogin = repo.owner ? repo.owner.login : 'unknown';
+                let avatarUrl = repo.owner ? repo.owner.avatar_url : `https://github.com/${ownerLogin}.png`;
+                let repoUrl = repo.html_url || repo.url;
+                let description = repo.description;
+                let starsTotal = repo.stargazers_count || repo.total_stars || 0;
+                let starsToday = repo.stars_today || repo.today_stars || 0;
+
+                // 特殊处理 trending 数据源 (full_name: "owner / repo")
+                if (!name && repo.full_name) {
+                    const parts = repo.full_name.split('/');
+                    if (parts.length >= 2) {
+                        ownerLogin = parts[0].trim();
+                        name = parts[1].trim();
+                    } else {
+                        name = repo.full_name;
+                    }
+                    // 如果没有 owner 对象，修正 avatarUrl
+                    if (!repo.owner) {
+                        avatarUrl = `https://github.com/${ownerLogin}.png`;
+                    }
+                }
                 
-                // Format numbers
-                const starsTotal = (repo.stargazers_count || repo.total_stars || 0).toLocaleString();
-                // Some sources might use different keys
-                const starsToday = repo.stars_today || repo.today_stars || 0;
+                // 处理 stars 格式 (有些数据源可能是字符串 "21,319")
+                if (typeof starsTotal === 'string') {
+                    // 它是已经格式化好的字符串，或者是带逗号的数字
+                    // 暂时保持原样，或者清洗一下
+                } else {
+                    starsTotal = (starsTotal || 0).toLocaleString();
+                }
+                
+                // 处理 growth 字段 (trending 数据源可能有 growth 文本)
+                if (repo.growth && !starsToday) {
+                    const match = repo.growth.match(/(\d+) stars today/);
+                    if (match) starsToday = match[1];
+                }
                 
                 return `
                 <article class="repo-card bg-github-card border border-github-border rounded-lg p-5 flex flex-col h-full relative group">
@@ -137,15 +166,15 @@
                             </div>
                             <div>
                                 <h2 class="text-lg font-semibold text-github-accent hover:underline truncate max-w-[200px]">
-                                    <a href="${repo.html_url || repo.url}" target="_blank">${repo.name}</a>
+                                    <a href="${repoUrl}" target="_blank">${name}</a>
                                 </h2>
                                 <div class="text-xs text-github-muted">${ownerLogin}</div>
                             </div>
                         </div>
                     </div>
 
-                    <p class="text-sm text-github-text mb-4 flex-grow line-clamp-2" title="${repo.description}">
-                        ${repo.description || 'No description provided.'}
+                    <p class="text-sm text-github-text mb-4 flex-grow line-clamp-2" title="${description}">
+                        ${description || 'No description provided.'}
                     </p>
 
                     <div class="flex items-center justify-between text-sm mt-auto pt-4 border-t border-github-border/50">
@@ -160,7 +189,7 @@
                             </div>
                         </div>
                         
-                        ${starsToday > 0 ? `
+                        ${starsToday ? `
                         <div class="flex items-center gap-1 text-green-400 font-medium">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
                             +${starsToday}
