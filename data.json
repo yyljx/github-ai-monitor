@@ -1,41 +1,41 @@
 {
-  "update_time": "2026-01-26 00:01",
+  "update_time": "2026-01-26 12:01",
   "new_hot": [],
   "trending": [
     {
       "full_name": "Blaizzy /mlx-audio",
       "html_url": "https://github.com/Blaizzy/mlx-audio",
       "description": "A text-to-speech (TTS), speech-to-text (STT) and speech-to-speech (STS) library built on Apple's MLX framework, providing efficient speech analysis on Apple Silicon.",
-      "stargazers_count": "3,874",
-      "growth": "263 stars today (Global AI)"
+      "stargazers_count": "4,425",
+      "growth": "272 stars today (Global AI)"
     },
     {
       "full_name": "VectifyAI /PageIndex",
       "html_url": "https://github.com/VectifyAI/PageIndex",
       "description": "📑 PageIndex: Document Index for Vectorless, Reasoning-based RAG",
-      "stargazers_count": "8,877",
-      "growth": "1,007 stars today (Global AI)"
+      "stargazers_count": "9,181",
+      "growth": "1,004 stars today (Global AI)"
     },
     {
       "full_name": "OpenBMB /UltraRAG",
       "html_url": "https://github.com/OpenBMB/UltraRAG",
       "description": "UltraRAG v3: A Low-Code MCP Framework for Building Complex and Innovative RAG Pipelines",
-      "stargazers_count": "3,819",
+      "stargazers_count": "4,178",
       "growth": "437 stars today (Global AI)"
     },
     {
       "full_name": "microsoft /VibeVoice",
       "html_url": "https://github.com/microsoft/VibeVoice",
       "description": "Open-Source Frontier Voice AI",
-      "stargazers_count": "21,891",
+      "stargazers_count": "22,109",
       "growth": "362 stars today (Global AI)"
     },
     {
       "full_name": "openai /codex",
       "html_url": "https://github.com/openai/codex",
       "description": "Lightweight coding agent that runs in your terminal",
-      "stargazers_count": "57,328",
-      "growth": "193 stars today (Global AI)"
+      "stargazers_count": "57,500",
+      "growth": "170 stars today (Global AI)"
     }
   ]
 }
